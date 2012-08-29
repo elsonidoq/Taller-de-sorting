@@ -1,24 +1,29 @@
-Taller-de-sorting
+Taller de sorting
 =================
 
+
+Instalación
+-----------
+ * sudo apt-get install  python-setuptools
+ * sudo python setup.py install. Si se utiliza [virtualenv](http://pypi.python.org/pypi/virtualenv) se puede evitar ser sudo
+ * Una vez instalado el paquete, se dispondrán de un set de comandos system wide. Ejecutar `taller-sorting-config`
+
+
+Explicación del código
+----------------------
 
 El código se divide en 3 partes:
  * La que se le entrega a los alumnos para que trabajen
  * Para recibir los submits de los alumnos
  * Para visualizar los algoritmos
  
-1) Instalacion
-       - sudo apt-get install  python-setuptools
-       - despues anda al taller de sorting, busca el archivo setup.py y hace
-          sudo python setup.py install 
+### Código de los alumnos
+Dado que queremos que los alumnos hagan un algoritmo n^2 y otro n log n, y esten parejos, se cuenta con un script que genera el código que se tiene que bajar cada grupo de forma tal que queden razonablemente balanceados los algoritmos entre los grupos. 
+Para ejecutarlo correr `taller-sorting-build-alumni-distr N`, donde N es la cantidad de grupos. Creará la carpeta `alumni_distrs` con una
+carpeta por grupo.
 
-2) Codigo de los alumnos
-Como queremos que los alumnos hagan un algoritmo n^2 y otro n log n, y esten parejos, hice un script que genera el codigo que se tiene que bajar cada grupo para que quede mas o menos balanceado (igual no te va a quedar, porque algunos algoritmos son mas dificiles je)
-Ese script se llama build_alumni_distr.py.
-           python build_alumni_distr.py 20 -> te mete 20 archivos en la carpeta alumni_distrs
-Esa carpeta tenes que compartirla. En lo que te mando ya hay 20 archivos, asi que no creo que tengas que correrlo de nuevo
+Para que los alumnos prueben el código, se cuenta con un script que dentro de lo que cada alumno descarga. Ese script prueba el código con arreglos pequeños y con medianos. Además cuenta con una opción para estime la constante de tu algoritmo. Si bien la estimación es rudimentaria, también es lúdica.
 
-1.bis) Los alumnos pueden probar el codigo, para eso hice un script que esta en lo que les mandas por mail. Ese script te prueba el codigo con arreglos chiquitos y con arreglos grandes. Ademas podes pedirle que te estime la constante de tu algoritmo (a ojo de buen cubero =p) pero es ludico.
 
 grupo_1: python test.py --help
 Usage: test.py algoritmo [options]
@@ -35,8 +40,8 @@ Options:
 
 por ejemplo python test.py quicksort -l
 
-3) Submit de codigo
-   a) Setup: para submitear los alumnos te van a mandar mail a mdsafe+taller@gmail.com. Eso te va a llegar a tu direccion de correo, pero podes poner un filtro de mensajes para que te los mande a una carpeta llamada "taller sorting". Es importante que le pongas exactamente ese nombre sin cambiar mayusculas ni nada.
+### Submit de soluciones
+    * Setup: para submitear los alumnos te van a mandar mail a mdsafe+taller@gmail.com. Eso te va a llegar a tu direccion de correo, pero podes poner un filtro de mensajes para que te los mande a una carpeta llamada "taller sorting". Es importante que le pongas exactamente ese nombre sin cambiar mayusculas ni nada.
    b) Submit: Los alumnos te tienen que mandar un mail a mdsafe+taller@gmail.com con el archivo algorithms.py como attach. Solo ese archivo.
    b) Downloads: Cuando los alumnos te manden soluciones, hace python download_submits.py mdsafe@gmail.com. Eso te va a pedir tu password, y te juro por que me caiga un rayo que no te lo voy a robar, solo se usa para bajar los mails del taller =p
 

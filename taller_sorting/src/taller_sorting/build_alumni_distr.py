@@ -9,6 +9,8 @@ algs2= dict(heapsort=0,
             mergesort=0,
             quicksort=0)
 
+here= os.path.dirname(os.path.abspath(__file__))
+
 def main():
     n= int(sys.argv[1])
 
@@ -25,8 +27,9 @@ def make_one_copy(dir, group_name):
     dst= os.path.join(dir, group_name)
     os.makedirs(dst)
     fnames= 'list.py list_algorithms.py test.py'.split()
+    
     for fname in fnames:
-        shutil.copy(fname, dst)
+        shutil.copy(os.path.join(here,fname), dst)
 
     global algs1, algs2
     alg1= sorted(algs1.items(), key=lambda x:x[1])[0][0]
