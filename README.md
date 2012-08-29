@@ -24,8 +24,8 @@ carpeta por grupo.
 
 Para que los alumnos prueben el código, se cuenta con un script que dentro de lo que cada alumno descarga. Ese script prueba el código con arreglos pequeños y con medianos. Además cuenta con una opción para estime la constante de tu algoritmo. Si bien la estimación es rudimentaria, también es lúdica.
 
-
-`grupo_1: python test.py --help
+<pre>
+grupo_1: python test.py --help
 Usage: test.py algoritmo [options]
 
 Options:
@@ -38,9 +38,11 @@ Options:
                         Si tu algoritmo es n*log(n) o n^2, trata de estimar la
                         constante
 
-por ejemplo python test.py quicksort -l`
+</pre>
 
-Para que esto ande, es importante que los alumnos utilicen la implementación dada de la clase lista (archivo lista.py), puesto 
+Ejemplo: `python test.py quicksort -l`
+
+Para que esto ande, es *importante* que los alumnos utilicen la implementación dada de la clase lista (archivo lista.py), puesto 
 que hace un conteo de accesos y escrituras. Esto se utiliza tanto para estimar la constante como para visualizar desde la interfaz 
 gráfica. De modo que si los alumnos crean listas nuevas el conteo se verá perdido.
 
