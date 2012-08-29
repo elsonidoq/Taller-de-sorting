@@ -63,5 +63,3 @@ la lista a la que se llama el método. Este método está pensado para el paso d
 
 
 
-Bueno, cualquier cosa avisame. Estoy pensando en armar un pdf con toda esta explicacion =p
-
