@@ -70,9 +70,5 @@ def main():
             f.write(submit_content)
 
     
-def prune_contacts(contacts):
-    c.endswith('mail.gmail.com')
-    cs= [c for c in cs if len(c) <= 37]
-
 if __name__ == '__main__':
     main()

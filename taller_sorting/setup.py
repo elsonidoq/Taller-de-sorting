@@ -31,6 +31,8 @@ setup(
     taller-sorting-config = taller_sorting.webi.build_ini:main
     taller-sorting-webi = taller_sorting.webi.controllers:main
     taller-sorting-build-alumni-distr = taller_sorting.build_alumni_distr:main
+    taller-sorting-download-submits = taller_sorting.download_submits:main
+    taller-sorting-algorithms = taller_sorting.sorting_algorithms_path:main
     """,
 )
 

@@ -25,7 +25,7 @@ carpeta por grupo.
 Para que los alumnos prueben el código, se cuenta con un script que dentro de lo que cada alumno descarga. Ese script prueba el código con arreglos pequeños y con medianos. Además cuenta con una opción para estime la constante de tu algoritmo. Si bien la estimación es rudimentaria, también es lúdica.
 
 
-grupo_1: python test.py --help
+`grupo_1: python test.py --help
 Usage: test.py algoritmo [options]
 
 Options:
@@ -38,23 +38,27 @@ Options:
                         Si tu algoritmo es n*log(n) o n^2, trata de estimar la
                         constante
 
-por ejemplo python test.py quicksort -l
+por ejemplo python test.py quicksort -l`
+
+Para que esto ande, es importante que los alumnos utilicen la implementación dada de la clase lista (archivo lista.py), puesto 
+que hace un conteo de accesos y escrituras. Esto se utiliza tanto para estimar la constante como para visualizar desde la interfaz 
+gráfica. De modo que si los alumnos crean listas nuevas el conteo se verá perdido.
+
+En el caso de necesitar un arreglo temporal, la lista cuenta con un método `crear_temporal` que crea una lista del mismo tamaño que 
+la lista a la que se llama el método. Este método está pensado para el paso de merge del merge sort. 
 
 ### Submit de soluciones
-    * Setup: para submitear los alumnos te van a mandar mail a mdsafe+taller@gmail.com. Eso te va a llegar a tu direccion de correo, pero podes poner un filtro de mensajes para que te los mande a una carpeta llamada "taller sorting". Es importante que le pongas exactamente ese nombre sin cambiar mayusculas ni nada.
-   b) Submit: Los alumnos te tienen que mandar un mail a mdsafe+taller@gmail.com con el archivo algorithms.py como attach. Solo ese archivo.
-   b) Downloads: Cuando los alumnos te manden soluciones, hace python download_submits.py mdsafe@gmail.com. Eso te va a pedir tu password, y te juro por que me caiga un rayo que no te lo voy a robar, solo se usa para bajar los mails del taller =p
+ * Setup: para submitear los alumnos deberán mandar por mail su solución. Por ejemplo a anonimo+taller@gmail.com. Los mails escritos a esa dirección, llegarán a anonimo@gmail.com, por lo que los puede filtrar facilmente. 
+    Es necesario filtrar esos mails y asignarles una etiqueta con el exactamente el nombre "taller sorting". Dado que los filtros son
+    case sensitive, ws importante que se llame exactamente asi.
+ * Submit: Los alumnos deben enviar un mail a anonimo+taller@gmail.com con el archivo algorithms.py como attach. Solo ese archivo.
+ * Downloads: Cuando los alumnos envien sus soluciones, ejecutar taller-sorting-download-submits.py anonimo@gmail.com. El programa luego pide el password para acceder a esa cuenta de mail. Sólo se utiliza el password para ese fin. En caso de desconfiar se invita a utilizar otra cuenta de mails o revisar el codigo.
+ * Recover: en caso de necesitar las soluciones, el comando taller-sorting-algorithms especificará en que directorio se guardaron
 
-4) Interfaz web
-     a) Setup: Para mostrar las animaciones, lo hice con una interfaz web, porque es lo que se hacer (no se hacer otras interfaces =p). Lo que tenes que hacer es python webi/controllers.py
-     b) Uso: Despues que la levantaste entra en localhost:8080 y vas a ver una hermosa pagina web (?). Ahi tenes una lista desplegable con todos los algoritmos. Si elegis un algoritmo te pone todas las implementaciones que tiene de ese algoritmo. Tambien podes poner "Custom" para elegir una combinacion que se te antoje. Trata de usarlo desde Chrome porque anda mas rapido. 
-Ademas tenes dos sliders, uno para el tamaño del arreglo y otro para la velocidad de sorting. 
+### Interfaz web
+ * Setup: Para mostrar las animaciones es necesario levantar el servidor web. Para eso se debe ejecutar `taller-sorting-webi`.
+ * Uso: Una vez levantada la aplicación, abrir en un navegador la dirección `localhost:8080`. En ella se encuentra una lista desplegable con todos los algoritmos. Si se elige un algoritmo, se cargan te todas las implementaciones que los alumnos enviaron de ese algoritmo. También da una opción de elegir "Custom" para visualizar una combinación arbitraria. Se recomienda el uso de Chrome dado que la animación hace un uso intensivo de javascript.
 
-
-Te recomiendo que pruebes todo un par de dias antes por si las dudas. Por probar todo me refiero tambien a poner la regla de mensajes y mandarte a vos mismo mails, bajarlos y usarlos. O sea, todo el ciclo.
-
-Por ultimo te estoy mandando dos apuntes, uno con invariantes y otro con sintaxis de python. 
-Es importante que los alumnos en los algoritmos no construyan nuevas listas, porque la forma que tengo para contar operaciones es armandome yo una lista. Mira el archivo list.py
 
 
 Bueno, cualquier cosa avisame. Estoy pensando en armar un pdf con toda esta explicacion =p
