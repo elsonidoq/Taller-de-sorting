@@ -1,0 +1,144 @@
+\documentclass[a4paper, twocolumn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[spanish]{babel} %activateacute
+\usepackage{amsthm}
+\usepackage{indentfirst}
+\usepackage{aed2-tad}
+\usepackage{aed2-symb}
+\usepackage{aed2-itef}
+\usepackage{algorithm, algorithmic}
+\usepackage{yhmath}
+\usepackage{color}
+\usepackage[a4paper, left=2cm, bottom=2cm, top=3cm, right=2cm]{geometry}
+
+\usepackage{graphicx}
+
+    \setcounter{topnumber}{4}
+    \setcounter{bottomnumber}{4}
+    \setcounter{totalnumber}{4}     % 2 may work better
+\def\1{\'{\i}}
+\def\3{$^{\circ}$}
+\newcommand{\illas}[1]{``{#1}''}
+\newcommand{\comment}[1]{\marginpar{\textsf{#1}}}
+
+\newcommand{\genero}[2]{\emph{#1}$<$$#2$$>$}
+\renewcommand{\widehat}[1]{#1\xspace}
+
+%\textwidth=17.1cm \textheight=23.5cm \oddsidemargin=0cm
+%\hoffset=0cm \voffset=0cm \topmargin=0cm \headsep=0cm
+%\headheight=0cm
+
+%\oddsidemargin=0cm \evensidemargin=2cm \marginparwidth=2cm
+
+\sloppy
+
+\title{Apunte de Python}
+\author{Algoritmos y Estructuras de Datos II}
+\date{Segundo cuatrimestre - 2010}
+\begin{document}
+\maketitle
+
+
+\pagestyle{myheadings} \thispagestyle{plain}
+\markright{Algoritmos y Estructuras de Datos II
+--- \small Apunte de Python}
+
+
+\markright{Algoritmos y Estructuras de Datos II}
+
+\section{Sintaxis}
+Recuerden, \textbf{TODOS} los lugares donde en C++ ponen llaves, aca tienen que identar el codigo apretando tab.
+\subsection{If}
+\begin{verbatim}
+    if a > 0:
+        print "a > 0"
+    elif a < 0:
+        print "a < 0"
+    else:
+        print "a == 0"
+\end{verbatim}
+
+\subsection{While}
+
+\begin{verbatim}
+    i = 0
+    while i < 100:
+        i+=1 # no vale hacer i-- o i++
+\end{verbatim}
+
+\subsection{For}
+cuando ponen \texttt{range(a,b)}, van a estar recorriendo desde a, hasta b \textbf{sin incluir b}.
+\begin{verbatim}
+
+    # for(int i=5;i<10;i++)
+    for i in range(5, 10): 
+        print i
+
+\end{verbatim}
+
+\subsection{Una función completa}
+Vamos a escribir la función máximo. La precondición es que la arreglo es no vacía.
+\begin{verbatim}
+    def maximo(l):
+        res = l[0]
+        for i in range(1, len(l)):
+            if res < l[i]: 
+                res = l[i]
+        return res                
+\end{verbatim}
+
+\section{Tips}
+\subsection{Crear un arreglo temporal}
+La funcion \texttt{crear\_temporal} construye un arreglo temporal del tamaño de la arreglo original. 
+
+\textbf{No usen otra forma para crear arreglo porque quedan descalificados}
+\begin{verbatim}
+    arreglo_temporal = arreglo.crear_temporal()
+\end{verbatim}
+
+\subsection{Swap}
+Para swapear el contenido de dos variables:
+\begin{verbatim}
+    a, b = b, a
+\end{verbatim}
+
+En el caso de arreglo
+
+\begin{verbatim}
+    arreglo[i], arreglo[j] = arreglo[j], arreglo[i]
+\end{verbatim}
+
+\section{Como correr los algoritmos}
+Tienen que ejecutar este comando
+
+\begin{verbatim}
+    python test.py <nombre-algoritmo>
+\end{verbatim}
+
+Así como esta arriba les va a preguntar que quieren hacer. Tienen las siguientes opciones:
+\begin{itemize}
+  \item \texttt{-l}:\\ les prueba su algoritmo con una lista aleatoria de 10 elementos
+  \item \texttt{-L}:\\ les prueba su algoritmo con una lista aleatoria de 5000 elementos
+  \item \texttt{-e}:\\ corre tu algoritmo varias veces y te estima cual es la constante
+\end{itemize}
+
+Ejemplos:
+\begin{verbatim}
+    \: python test.py mergesort -l
+
+    nop, algo fallo
+    la lista original era: [0, 6, 8, 7, 9, 4, 5, 1, 3]
+    tu algoritmo la dejo asi: [0, 6, 8, 7, 9, 4, 5, 1]
+\end{verbatim}
+
+\begin{verbatim}
+
+    \: python test.py mergesort -e
+
+    Ejecutando el algoritmo...
+    Tu algoritmo es O(n*log(n)) con constante 6.74
+\end{verbatim}
+
+\end{document}

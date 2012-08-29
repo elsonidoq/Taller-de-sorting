@@ -1,0 +1,122 @@
+\documentclass[a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage[spanish]{babel} %activateacute
+\usepackage{amsthm}
+\usepackage{indentfirst}
+\usepackage{aed2-tad}
+\usepackage{aed2-symb}
+\usepackage{aed2-itef}
+\usepackage{algorithm, algorithmic}
+\usepackage{yhmath}
+\usepackage{color}
+\usepackage[a4paper, left=2cm, bottom=2cm, top=3cm, right=2cm]{geometry}
+
+\usepackage{graphicx}
+
+    \setcounter{topnumber}{4}
+    \setcounter{bottomnumber}{4}
+    \setcounter{totalnumber}{4}     % 2 may work better
+\def\1{\'{\i}}
+\def\3{$^{\circ}$}
+\newcommand{\illas}[1]{``{#1}''}
+\newcommand{\comment}[1]{\marginpar{\textsf{#1}}}
+
+\newcommand{\genero}[2]{\emph{#1}$<$$#2$$>$}
+\renewcommand{\widehat}[1]{#1\xspace}
+
+\newenvironment{metodo}{
+\let\Pre\empty
+\let\Post\empty
+\let\Signatura\empty
+}{
+    \noindent{\Signatura}
+
+    \noindent{\textbf{Pre: }\Pre}
+
+    \noindent{\textbf{Post: }\Post} \newline
+
+}
+
+\newcommand{\pre}[1]{\def\Pre{#1}}
+\newcommand{\post}[1]{\def\Post{#1}}
+\newcommand{\signatura}[1]{\def\Signatura{#1}}
+
+%\textwidth=17.1cm \textheight=23.5cm \oddsidemargin=0cm
+%\hoffset=0cm \voffset=0cm \topmargin=0cm \headsep=0cm
+%\headheight=0cm
+
+%\oddsidemargin=0cm \evensidemargin=2cm \marginparwidth=2cm
+
+\sloppy
+
+\title{Invariantes de algoritmos de sorting}
+\author{Algoritmos y Estructuras de Datos II}
+\date{Segundo cuatrimestre - 2010}
+\begin{document}
+\maketitle
+
+
+\pagestyle{myheadings} \thispagestyle{plain}
+\markright{Algoritmos y Estructuras de Datos II
+--- \small Invariantes}
+
+
+\markright{Algoritmos y Estructuras de Datos II}
+
+\section{Selection sort}
+\subsection{Idea}
+    Seleccionar el mínimo elemento, llamémoslo $m$, del contenedor y ponerlo al principio. 
+    Después seleccionar el mínimo elemento sin tener en cuenta $m$ y ponerlo segundo... etc
+    Se puede hacer in-place.
+
+\subsection{Invariante}
+\begin{itemize}
+    \item En la k-ésima iteración, los primeros k elementos ya están ordenados en su posición final.
+    \item El arreglo es una permutación del arreglo original.
+\end{itemize}
+
+\section{Insertion sort}
+\subsection{Idea}
+    Insertar el i-ésimo elemento del contenedor en la posición que le corresponde en el arreglo 0..i
+    Se puede hacer in-place.
+\subsection{Invariante}
+    \begin{itemize}
+        \item Los elementos del arreglo de 0..i son los mismos que en el arreglo original, pero están ordenados.
+        \item El arreglo es una permutación del arreglo original.
+    \end{itemize}
+
+
+\section{Heap sort}
+    \subsection{Idea}
+        Transformar el arreglo en un heap usando el algoritmo de Floyd en O(n). Una vez construido el heap, el máximo, llamémoslo $M$, 
+        se obtiene en O(1), y remover el máximo es O(log(n)). Al remover el máximo del heap, queda un espacio vació en el arreglo. 
+        Llenar ese espacio vacío, que está al final de l arreglo con $M$.
+        O sea, hacélo in-place.
+    
+    \subsection{Invariante}
+        \begin{itemize}
+            \item En la i-ésima iteración, los primeros n-i elementos del arreglo conforman un heap y los últimos i elementos 
+                  están ordenados
+
+            \item El arreglo es una permutación del arreglo original
+        \end{itemize}
+        
+
+\section{Merge sort}
+    \subsection{Idea}
+        Para ordenar un arreglo, lo parto en dos mitades $A_1$ y $A_2$. Ordeno las dos mitades $A_1$ y $A_2$ y despues las junto en O(n).
+        Para ordenar a $A_1$ y a $A_2$ me llamo recursivamente.
+
+        No sale in-place, salvo que lo hagas sobre listas.
+
+\section{Quick sort}
+    \subsection{Idea}
+        Elijo un elemento del arreglo, al que voy a llamar pivote. Pongo a todos los elementos menores al pivote a la izquierda 
+        y a los elementos mayores al pivote a la derecha.
+        Me llamo recursivamente con izquierda y con derecha.
+
+        Tips: Fijate que podes elegir el pivote de muchas formas: el primer elemento, la mediana, random.
+
+\end{document}
