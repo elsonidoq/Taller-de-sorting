@@ -47,8 +47,8 @@ class Root(object):
             custom_algorithms= self._parse_custom_algoritms(custom_algorithms)
 
         groups= []
-        for group_name, group_algorithms in algorithms.iteritems():
-            for alg_name, impl in group_algorithms:
+        for group_name, group_algorithms in sorted(algorithms.iteritems(),key=lambda x:x[0]):
+            for alg_name, impl in sorted(group_algorithms, key=lambda x:x[0]):
                 if algorithm == 'custom':
                     if alg_name in custom_algorithms[group_name]:
                         groups.append("%s/%s" % (group_name, alg_name))

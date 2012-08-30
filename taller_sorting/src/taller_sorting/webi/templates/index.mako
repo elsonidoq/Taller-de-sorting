@@ -23,7 +23,7 @@
 
             border:solid 1px; 
             height:150px; 
-            width:100px
+            width:150px
         }
         
         .top-bar-description {
@@ -42,10 +42,10 @@
     }
     $(document).ready(function(){
         $("#speed-slider").slider({
-                min:10, 
-                max:200, 
-                step:10,
-                value:50,
+                min:1, 
+                max:50, 
+                step:1,
+                value:10,
                 change:function(event, ui){
                     $("#speed-slider-text").text(ui.value); 
                 }});
@@ -245,6 +245,7 @@
         <div style="text-align:right;font-size:10px">
             <a href="#" onclick="javascript:select_all()">seleccionar todos</a>
             <a href="#" onclick="javascript:select_none()">seleccionar ninguno</a>
+            <a href="#" onclick="javascript:get_implementations();$('#algorithms_selection').dialog('close');">aceptar</a>
         </div>
         % for group_name, group_algorithms in algorithms_per_group.iteritems():
             <div>
