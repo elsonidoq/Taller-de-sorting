@@ -41,10 +41,11 @@ class List(list):
         l= cls(l, counter=counter, history= history)
         return l
 
-    def crear_temporal(self):
+    def crear_temporal(self, size=None):
         self.counter.add(len(self))
         self.history.extend(['cmp' for k in xrange(len(self))])
-        return List(range(len(self)), counter= self.counter)
+        if size is None: size=len(self)
+        return List(range(size), counter= self.counter, history=self.history)
 
     def __getitem__(self, i):
         self.history.append(('read', i))

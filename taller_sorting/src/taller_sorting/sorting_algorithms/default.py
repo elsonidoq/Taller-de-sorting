@@ -1,18 +1,6 @@
 from taller_sorting.list_algorithms import presentar
 from random import randint
-grupo= 'Catedra'
-
-@presentar
-def selection_sort(lista):
-    for i in xrange(len(lista)):
-        m= lista[i]
-        arg_m= i
-        for j in xrange(i, len(lista)):
-            if m > lista[j]:
-                m= lista[j]
-                arg_m= j
-        lista[i], lista[arg_m]= lista[arg_m], lista[i]
-                    
+grupo= 'grupo_00'
 
 @presentar
 def heapsort(lista):
@@ -60,13 +48,9 @@ def shiftDown_old(lista, start, end):
 
 
 @presentar
-def quick_sort_pivot_last(lista):
+def quicksort(lista):
     return _quick_sort(lista, 0, len(lista), lambda l, start, end: end-1)
 
-
-@presentar
-def quick_sort_pivot_random(lista):
-    return _quick_sort(lista, 0, len(lista), lambda l, start, end: randint(start, end-1))
 
 def _quick_sort(lista, start, end, pivot_func):
     if end - start <= 1: return lista

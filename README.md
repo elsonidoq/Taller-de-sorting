@@ -49,6 +49,16 @@ gráfica. De modo que si los alumnos crean listas nuevas el conteo se verá perd
 En el caso de necesitar un arreglo temporal, la lista cuenta con un método `crear_temporal` que crea una lista del mismo tamaño que 
 la lista a la que se llama el método. Este método está pensado para el paso de merge del merge sort. 
 
+Por último, es importante que la declaración de las funciónes estén decoradas con @presentar. Eso es lo que hace que luego la interfaz web las utilice. Por ejemplo:
+
+<pre>
+@presentar
+def mergesort(l):
+    ...
+    ...
+    return l
+</pre>
+
 ### Submit de soluciones
  * **Setup**: para submitear los alumnos deberán mandar por mail su solución. Por ejemplo a anonimo+taller@gmail.com. Los mails escritos a esa dirección, llegarán a anonimo@gmail.com, por lo que los puede filtrar facilmente. 
     Es necesario filtrar esos mails y asignarles una etiqueta con el exactamente el nombre "taller sorting". Dado que los filtros son
