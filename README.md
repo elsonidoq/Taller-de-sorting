@@ -1,6 +1,9 @@
 Taller de sorting
 =================
 
+Video
+------
+[Este](http://www.youtube.com/watch?v=YoE2f1fV4iM) es un video de la herramienta en funcionamiento.
 
 Instalación
 -----------
